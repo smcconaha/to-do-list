@@ -38,9 +38,17 @@ export default function Input(props) {
                 <div className="form-check">
                   <input 
                     className="form-check-input" 
-                    type="checkbox" 
                     value="" 
-                    id="flexCheckDefault" />
+                    id="flexCheckDefault"
+                    type="checkbox"
+                    checked={todo.done}
+                    handleChange={e => {
+                      handleChange({
+                        ...todo,
+                        done: e.target.checked
+                      });
+                    }} 
+                  />  
                   <label 
                     className="form-check-label" 
                     for="flexCheckDefault">
