@@ -1,18 +1,30 @@
 import { useState } from 'react';
 
-export default function CreateTodo({ onEnterTodo }) {
-  const [reminder, setReminder] = useState('');
+let nextId = 0;
+
+export default function List() {
+  const [name, setName] = useState('');
+  const [artists, setArtists] = useState([]);
+
   return (
     <>
+      <h1>Inspiring sculptors:</h1>
       <input
-        placeholder="New Reminder"
-        value={reminder}
-        onChange={e => setReminder(e.target.value)}
+        value={name}
+        onChange={e => setName(e.target.value)}
       />
       <button onClick={() => {
-        setReminder('');
-        onEnterTodo(reminder);
-      }}>Enter</button>
+        setName('');
+        setArtists([
+          ...artists,
+          { id: nextId++, name: name }
+        ]);
+      }}>Add</button>
+      <ul>
+        {artists.map(artist => (
+          <li key={artist.id}>{artist.name}</li>
+        ))}
+      </ul>
     </>
-  )
+  );
 }

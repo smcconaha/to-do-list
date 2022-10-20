@@ -44,27 +44,29 @@ todoItem: this is the item on the list, will need a unique ID
 # Functionality
 
 ## Components
-
-CreateTodo() {
+DONE
+CreateReminder() {
     IF input blank and user clicks enter
     THEN error modal received
     ELSEIF input is not blank and user clicks enter
     THEN todoItem is added to todoArrActive AND todoArrAll
 }
 
-deleteTodo() {
+DeleteReminder() {
     WHILE todos exist within any state
     IF user clicks the remove radio button
     THEN the todoItem is removed from UI and local storage 
 }
 
-clearAllTodo() {
+ClearAllReminder() {
     WHILE todoItem exist / WHILE todoArrAll array length is greater than zero
     remove/delete todoItem
 }
 
-completeTodo() {
+CompleteTodo() {
     IF todoItem exist / IF todoArrAll array length is greater than zero
     AND radio button is clicked
     THEN todoItem is moved from the todoArrActive to the todoArrComplete array
 }
+
+Date.now, for ID id = (date.now). which becomes todo.id
