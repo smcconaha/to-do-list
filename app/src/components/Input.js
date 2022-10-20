@@ -31,17 +31,23 @@ export default function Input(props) {
       <div>
         <ul>
           {todos.map(todo => (
-            <li key={todo.id}>{todo.title}</li> //looping thru id and displaying todo title
+            <li key={todo.id}>{todo.title}
+            <button
+              className="btn btn-success"
+              type="button"
+              onClick={() => {
+                console.log(todos);
+                const nextTodos = [...todos];
+                nextTodos.splice(todos.indexOf(todo), 1);
+                setTodos(nextTodos);
+            }}>
+              Remove
+            </button>  
+            </li>
           ))}
         </ul>
       </div>
       <div>
-      <button
-        type="button"
-        className="btn btn-success">Completed</button>
-      <button
-        type="button" 
-        className="btn btn-warning">Delete</button>
       </div>
     </div>
   );
